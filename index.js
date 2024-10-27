@@ -20,14 +20,21 @@ sequelize.sync({force: true}).then(() => {
 });
 
 // Rota para buscar todos os usuários
-app.get('/users', (req, res) => {
-    User.findAll()
+app.get('/users/email/:email', (req, res) => {
+    const email = req.params.email;
+
+
+    User.findOne({where: {email: email}}) // Método para buscar pelo email
         .then(users => {
-            res.render('users', {users});
+            if(users) {
+            res.render('user', {users});
+            } else {
+                res.render('index', {msg: 'Usuário não encontrado.'});
+            }
         })
         .catch(error => {
             console.log('Erro ao buscar usuários:', error);
-            res.render('index', {msg: 'Erro ao processar a soliciação'})
+            res.render('index', {msg: 'Erro ao processar a solicitação'})
         })
 });
 
