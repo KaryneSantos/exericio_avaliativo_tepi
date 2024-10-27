@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de usuários</title>
+</head>
+<body>
+    <h1>Lista de Usuários</h1>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+        </tr>
+        <% users.forEach(user => { %>
+            <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td>
+                    <form action="/users/delete/<%= user.email %>" method="post">
+                        <button type="submit">Excluir</button>
+                    </form>
+                    <form action="/users/update/<%= user.email %>" method="POST">
+                        <button type="submit">Editar</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+</html>

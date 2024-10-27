@@ -14,10 +14,21 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
 // Sicronizando Banco de dados e criando um usuário
-
 sequelize.sync({force: true}).then(() => {
     console.log('Banco de dados sicronizado..');
     User.create({name: 'Flávio', email: 'flavio@gmail.com', password: '123456' });
+});
+
+// Rota para buscar todos os usuários
+app.get('/users', (req, res) => {
+    User.findAll()
+        .then(users => {
+            res.render('users', {users});
+        })
+        .catch(error => {
+            console.log('Erro ao buscar usuários:', error);
+            res.render('index', {msg: 'Erro ao processar a soliciação'})
+        })
 });
 
 
