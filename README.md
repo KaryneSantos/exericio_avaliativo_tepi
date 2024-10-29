@@ -1,6 +1,6 @@
 # Exercicio Avaliativo TEPI
 
-Este projeto é um sistema CRUD básico utilizando Node.js, Express e Sequelize com MysSQL
+Este projeto é um sistema básico de CRUD (Create, Read, Update, Delete) desenvolvido utilizando Node.js e Sequelize como ORM para interagir com um banco de dados.
 
 ## Funcionalidades
 
