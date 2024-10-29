@@ -106,6 +106,34 @@ app.post('/users/update/:email', (req, res) => {
     })
 });
 
+// Rota para excluir usuário
+
+app.get('/users/delete/:email',(req, res)=>{
+    const email = req.params.email;
+    res.render('delete', {email: email})
+});
+
+app.post('/users/delete/:email', async (req, res) => {
+   const email = req.params.email;
+   
+   try {
+    const result = await User.destroy({ where: { email: email } });
+    
+    if (result === 0) {
+        console.log('Nenhum usuário encontrado com esse e-mail');
+        res.render('index', { msg: 'Usuário não encontrado' });
+    } else {
+        console.log('Usuário excluído com sucesso');
+        res.render('index', { msg: 'Usuário excluído com sucesso' });
+    }
+} catch (error) {
+    console.log('Erro ao excluir usuário:', error);
+    res.render('index', { msg: 'Erro ao excluir usuário' });
+}
+
+});
+
+
 // Rota Raiz (index)
 app.get('/', (req, res) => {
     res.render('index', {msg: ''});
