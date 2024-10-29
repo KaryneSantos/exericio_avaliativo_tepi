@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>Excluir um usuário</h1>
+    <p>Você tem certeza se quer excluir esse usuário: <%= email %></p>
+    <form action="/users/delete/<%= email %>" method="POST">
+        <button type="submit">Excluir</button>
+    </form>
+    <a href="/login">Voltar</a>
+</body>
+</html>
