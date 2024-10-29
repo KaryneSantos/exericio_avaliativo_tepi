@@ -15,7 +15,7 @@ Este projeto é um sistema CRUD básico utilizando Node.js, Express e Sequelize 
    npm install
 4. Execute o projeto:
    
-   npm start
+   npm index.js
 
 ## Licença
 
