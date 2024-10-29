@@ -7,7 +7,7 @@ Este projeto é um sistema básico de CRUD (Create, Read, Update, Delete) desenv
 - **Create**: Permite a criação de novos registros no banco de dados.
 - **Read**: Permite a leitura e listagem dos registros existentes.
 - **Update**: Permite a atualização de registros já existentes.
-- **Delete**(Falta implementar): Permite a exclusão de registros.
+- **Delete**: Permite a exclusão de registros.
 
 ## Tecnologias Utilizadas
 
